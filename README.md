@@ -22,5 +22,8 @@ The system continuously monitors soil moisture levels. When the soil becomes dry
 This project was developed to explore embedded systems, sensor integration, and automation for smart indoor gardening applications.
 
 ## Author
-
-Lianyi Chen  
+Mohammad Abbas,
+Hongru (Alan) Wang,
+Rafiullah Hamdard,
+Lianyi (Richard) Chen,
+Jonathan Aguilera
