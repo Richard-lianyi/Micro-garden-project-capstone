@@ -17,6 +17,8 @@ Micro Garden is an automated indoor smart irrigation system designed to monitor 
 
 The system continuously monitors soil moisture levels. When the soil becomes dry, the corresponding watering system is activated for a fixed duration. This approach helps prevent overwatering and improves water efficiency.
 
+Visual prototype：https://drive.google.com/drive/u/1/folders/13bwW84Rvh4G-Fw1Pru08RFwvQtQt2cRF
+
 ## Purpose
 
 This project was developed to explore embedded systems, sensor integration, and automation for smart indoor gardening applications.
