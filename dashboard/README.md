@@ -1,16 +1,26 @@
-# Micro Garden 本地模拟控制台
+# Local USB sensor dashboard (Windows)
 
-直接双击 `index.html`，用浏览器打开即可，无需安装依赖。
+1. Upload micro_garden_ui/micro_garden_ui.ino to Arduino Uno.
+2. Close Arduino Serial Monitor and Serial Plotter. Keep pump power disconnected during sensor testing.
+3. Open PowerShell in this project folder and run:
 
-此版本不连接 Arduino，不发送任何硬件指令，所有数据和设备状态均为模拟。
+```powershell
+node server.cjs
+```
 
-- 四路土壤 ADC 原始读数、温湿度、光线 ADC
-- 2 秒模拟浇水与 30 秒等待期
-- 手动开关灯和模拟光线自动控制
-- 温度趋势与操作日志
+4. Open http://127.0.0.1:3000 in your browser. Do not open index.html directly.
+5. Stop the server with Ctrl+C before reopening Serial Monitor.
 
-刷新页面会重置模拟状态与记录。土壤数值未校准，不能当作含水率百分比。
-自动灯光为演示逻辑，不含真实设备的 16 小时日照时段。
+Default port: COM5, 9600 baud. To select another port:
 
-下一阶段接入本地 Node.js 串口服务，由服务读取 Arduino DATA 行并转发指令。
-目前没有实现该服务，也不支持 USB 连接。
+```powershell
+$env:ARDUINO_PORT = 'COM6'
+node server.cjs
+```
+
+Requires Node.js and Windows PowerShell; no npm packages are needed.
+The serial reader retries every three seconds when a port cannot be opened.
+The dashboard marks data stale after five seconds without telemetry.
+Web controls are disabled: this version only reads hardware status.
+The Arduino firmware itself still performs automatic watering and lockout.
+LIGHT_RAW is not meaningful while A0 is disconnected. Calibrate soil thresholds.
